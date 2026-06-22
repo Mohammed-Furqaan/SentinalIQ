@@ -206,7 +206,13 @@ const KanbanBoard = () => {
     if (!over) return;
 
     const taskId = active.id;
-    const newStatus = over.id;
+    
+    // If dropped over a task, get that task's status. Otherwise, it's a column ID.
+    let newStatus = over.id;
+    const overTask = tasks.find(t => t.id === over.id);
+    if (overTask) {
+      newStatus = overTask.status;
+    }
 
     const taskToUpdate = tasks.find(t => t.id === taskId);
     if (taskToUpdate && taskToUpdate.status !== newStatus) {
@@ -214,7 +220,7 @@ const KanbanBoard = () => {
       setTasks(tasks.map(t => t.id === taskId ? { ...t, status: newStatus } : t));
       
       try {
-        await api.put(`/tasks/${taskId}/status`, { status: newStatus });
+        await api.patch(`/tasks/${taskId}/status?status=${newStatus}`);
       } catch (error) {
         console.error("Failed to update task status:", error);
         // Revert on error
