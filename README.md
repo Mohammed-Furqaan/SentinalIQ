@@ -67,3 +67,20 @@ The database seeder automatically provisions the following default accounts to e
 
 ---
 *Built for engineering teams who demand clarity, velocity, and delivery excellence.*
+
+## 🌐 Live Demo
+
+Experience SentinelIQ in action:
+
+**Live Application:** https://sentinal-iq.vercel.app/
+
+### Demo Credentials
+
+| Role                | Username    | Password     |
+| :------------------ | :---------- | :----------- |
+| **Admin**           | `admin`     | `admin123`   |
+| **Project Manager** | `manager`   | `manager123` |
+| **Developer**       | `sarah_dev` | `dev123`     |
+
+> Feel free to explore the dashboard, Kanban board, project management features, bug tracking system, and AI-powered risk analysis engine.
+
